@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title>Easter Egg..?</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2Ffavicon.ico"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <script>
+      var easterEgg = function() {
+        var music =
+          "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2FCOFFIN_DANCE.mp4?v=1602874440732";
+        var coffin = new Audio(music);
+        coffin.play();
+      };
+
+      function loca() {
+        location.href = "/i_want_more.html";
+      }
+    </script>
+    <script>
+      function toggle(ID) {
+        var element = document.getElementById(ID);
+        if (element.style.display === "none") {
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+      }
+    </script>
+    <p>
+      omg you found the easter egg your reward is more music
+    </p>
+    <script>
+      var i = 0;
+    </script>
+    <button onclick="easterEgg(); toggle('div-visible')">
+      your reward
+    </button>
+
+    <div id="div-visible" style="display:none">
+      <button id="buton" onclick="loca();">
+        I WANT MOREEEE (volume warning)
+      </button>
+    </div>
+  </body>
+</html>

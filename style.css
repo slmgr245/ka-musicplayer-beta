@@ -1,0 +1,36 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: "Comic Sans MS", arial, sans-serif;
+  margin: 2em;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+  
+}
+h1:hover {
+  color: rgb(244, 192, 092);
+}
+button:hover {
+  color: blue;
+}
+input:hover {
+  color: orange;
+}
+button {
+  border: 6px ridge blue;
+  margin: 5px 5px 5px 5px;
+}
+p {
+  margin: 10px 10px 10px 10px;
+}
+a:visited {
+  color: black;
+}
+a {
+  color: black;
+  font-style: none;
+}
+

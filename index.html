@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Music Player</title>
+
+    <link
+      rel="shortcut icon"
+      href="https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2Ffavicon.ico"
+    />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="/index.js" defer></script>
+
+    <script>
+      
+    </script>
+    <!-- to line 39 where the error is the <button> tag -->
+  </head>
+  <body>
+    <h1>Hi there!</h1>
+
+    <label
+      >What song to play? (Put in link to MP3/OGG/MP4)<a
+        id="secret"
+        href="/peanut-butter.html"
+        >:</a
+      ></label
+    >
+
+    <input id="input" type="text" />
+    <button id="play">
+      Play!
+    </button>
+
+    <script>
+      var fhbasb = new Audio(
+        "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2Fshakedown.mp3?v=1603205714319"
+      );
+      var cjndmc = new Audio(
+        "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2FCOFFIN_DANCE.mp3?v=1603043199775"
+      );
+      var jcndsd = new Audio(
+        "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2Fefdfn05.jx1.mp4?v=1602867831632"
+      );
+      var chhsds = new Audio(
+        "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2FCOFFIN_DANCE.mp4?v=1602874440732"
+      );
+      var cnsnaw = new Audio(
+        "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2FClarx%20%26%20Harddope%20-%20Castle%20%5BNCS%20Release%5D.mp3?v=1603487839526"
+      );
+      
+      var cdmsfg = new Audio("");
+      var chjndn = new Audio("");
+      var ndansj = new Audio("");
+      var chndss = new Audio("");
+      var chsjuy = new Audio("");
+      var cdhgha = new Audio("");
+      var hcdkaa = new Audio("");
+      var yusysi = new Audio("");
+      var huznsd = new Audio("");
+      var jpeudd = new Audio("");
+      function pause() {
+        fhbasb.pause();
+        cjndmc.pause();
+        jcndsd.pause();
+        chhsds.pause();
+        cnsnaw.pause();
+      }
+      var date_data = Date();
+    </script>
+    <br />
+    <label>More Songs (Predefined MP3)</label> <br />
+    <button
+      onclick="fhbasb.play(); console.log('Started playing Clarx - Shakedown at ' + date_data);"
+    >
+      Clarx - Shakedown
+    </button>
+    <button
+      onclick="cjndmc.play(); console.log('Started playing Coffin Dance (Astronomia) at ' + date_data); "
+    >
+      Coffin Dance (Full) (takes time to load)
+    </button>
+    
+    
+    
+    <button>
+      Coffin Dance (11-Second Clip)
+    </button>
+    <button
+      onclick="jcndsd.play(); console.log('Started playing Pigstep trap remix at ' + date_data); "
+    >
+      Pigstep trap remix
+    </button>
+    <button
+      onclick="cnsnaw.play(); console.log('Started playing Clarx+Harddope - Castle at ' + date_data); "
+    >
+      Clarx & Harddope - Castle
+    </button>
+    
+    
+    
+    
+     
+    <!--
+      include
+      the
+      Glitch
+      button
+      to
+      show
+      what
+      the
+      webpage
+      is
+      about
+      and
+      to
+      make
+      it
+      easier
+      for
+      folks
+      to
+      view
+      source
+      and
+      remix
+      -->
+
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js" defer></script>
+    <p>
+      © Karim Al-Ahmed, 2020
+    </p>
+    <button onclick="pause();" id="pausebutton">
+      Pause
+    </button>
+    <button onclick="" id="resumebutton">
+      Resume
+    </button>
+  </body>
+</html>
