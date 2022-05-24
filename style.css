@@ -1,10 +1,13 @@
 /* CSS files add styling rules to your content */
 
 body {
-  font-family: "Comic Sans MS", arial, sans-serif;
+  font-family: "Pusab", arial, sans-serif;
   margin: 2em;
 }
-
+.anticopy {
+  display: inline-block;  
+  transform: rotate(180deg);
+}
 h1 {
   font-style: italic;
   color: #373fff;
@@ -33,4 +36,11 @@ a {
   color: black;
   font-style: none;
 }
+html {
+  font-family: "Pusab";
+}
+button {
+  font-family: "Pusab";
+}
+
 

@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7M0QWCX6KD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-7M0QWCX6KD");
+    </script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,14 +26,15 @@
       href="https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2Ffavicon.ico"
     />
 
+    <!-- import pjs -- i will need it later -->
+    <script src="https://cdn.jsdelivr.net/processing.js/1.6.6/processing.min.js"></script>
+
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/ka-musicplayer-beta/style.css" type="text/css" />
+    <link rel="stylesheet" href="/style.css" />
+    <!-- Custom URL Support -->
+    <script src="/CustomURLSupport.js" defer></script>
 
-    <script src="/ka-musicplayer-beta/index.js" defer></script>
-
-    <script>
-      
-    </script>
+    <script></script>
     <!-- to line 39 where the error is the <button> tag -->
   </head>
   <body>
@@ -38,7 +53,7 @@
       Play!
     </button>
 
-    <script>
+    <script type="text/JavaScript">
       var fhbasb = new Audio(
         "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2Fshakedown.mp3?v=1603205714319"
       );
@@ -54,9 +69,13 @@
       var cnsnaw = new Audio(
         "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2FClarx%20%26%20Harddope%20-%20Castle%20%5BNCS%20Release%5D.mp3?v=1603487839526"
       );
-      
-      var cdmsfg = new Audio("");
-      var chjndn = new Audio("");
+
+      var cdmsfg = new Audio(
+        "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2FWarriyo%20-%20Mortals%20(feat.%20Laura%20Brehm)%20%5BNCS%20Release%5D.mp3?v=1603630561547"
+      );
+      var chjndn = new Audio(
+        "https://cdn.glitch.com/ad51e798-dd80-42d5-a0d3-6e61db915f66%2FClarx%20-%20Money%20%5BNCS%20Release%5D.mp3?v=1604522125889"
+      );
       var ndansj = new Audio("");
       var chndss = new Audio("");
       var chsjuy = new Audio("");
@@ -65,48 +84,17 @@
       var yusysi = new Audio("");
       var huznsd = new Audio("");
       var jpeudd = new Audio("");
-      function pause() {
+      function pausepresets() {
         fhbasb.pause();
         cjndmc.pause();
         jcndsd.pause();
         chhsds.pause();
         cnsnaw.pause();
+        cdmsfg.pause();
       }
       var date_data = Date();
     </script>
-    <br />
-    <label>More Songs (Predefined MP3)</label> <br />
-    <button
-      onclick="fhbasb.play(); console.log('Started playing Clarx - Shakedown at ' + date_data);"
-    >
-      Clarx - Shakedown
-    </button>
-    <button
-      onclick="cjndmc.play(); console.log('Started playing Coffin Dance (Astronomia) at ' + date_data); "
-    >
-      Coffin Dance (Full) (takes time to load)
-    </button>
-    
-    
-    
-    <button>
-      Coffin Dance (11-Second Clip)
-    </button>
-    <button
-      onclick="jcndsd.play(); console.log('Started playing Pigstep trap remix at ' + date_data); "
-    >
-      Pigstep trap remix
-    </button>
-    <button
-      onclick="cnsnaw.play(); console.log('Started playing Clarx+Harddope - Castle at ' + date_data); "
-    >
-      Clarx & Harddope - Castle
-    </button>
-    
-    
-    
-    
-     
+
     <!--
       include
       the
@@ -135,14 +123,88 @@
 
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
     <script src="https://button.glitch.me/button.js" defer></script>
-    <p>
-      © Karim Al-Ahmed, 2020
-    </p>
-    <button onclick="pause();" id="pausebutton">
+    <p><span class="anticopy">&copy;</span> Karim Al-Ahmed, 2022</p>
+    <button onclick="pauseAudio();" id="pausebutton">
       Pause
     </button>
-    <button onclick="" id="resumebutton">
-      Resume
+    <button onclick="audio.resume()" id="resumebutton">
+      Resume (Doesnt work(To unpause, just press play again))
     </button>
+    <br />
+    <a href="/beta-notices.html">Beta Notices</a>
+    <br />
+    Requirements for custom URLs:
+    <ul>
+      <li>No Access-Control-Allow-Origin CORS Header on source website.</li>
+      <li>
+        Not a common website, such as website.com/file.mp3. Try to use the
+        website's CDN, as most of them don't have that header. A url like
+        cdn.website.com/123456/file.mp3 is good.
+      </li>
+    </ul>
+    <p>
+      File upload policy: Feel free to upload anything to my servers and i'll
+      have it ready for you :D
+    </p>
+    <script>
+      // Upload file
+      function uploadFile() {
+        var totalfiles = document.getElementById("files").files.length;
+
+        if (totalfiles > 0) {
+          var formData = new FormData();
+
+          // Read selected files
+          for (var index = 0; index < totalfiles; index++) {
+            formData.append(
+              "files[]",
+              document.getElementById("files").files[index]
+            );
+          }
+
+          var xhttp = new XMLHttpRequest();
+
+          // Set POST method and ajax file path
+          xhttp.open("POST", "ajaxfile.php", true);
+
+          // call on request changes state
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var response = this.responseText;
+
+              alert(response + " File uploaded.");
+            }
+          };
+
+          // Send request with data
+          xhttp.send(formData);
+        } else {
+          alert("Please select a file");
+        }
+      }
+    </script>
+    <div>
+      <input type="file" name="files" id="files" multiple />
+      <input
+        type="button"
+        id="btn_uploadfile"
+        value="Upload"
+        onclick="uploadFile();"
+      />
+    </div>
+      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+    sorry for ads
   </body>
+  
+  
 </html>
